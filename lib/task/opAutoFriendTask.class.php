@@ -20,17 +20,22 @@ class opAutoFriendTask extends sfBaseTask
   [./symfony tjm-AutoFriend]
 EOF;
 
-    $this->addOption('target', null, sfCommandOption::PARAMETER_OPTIONAL, 'target', null);
 
+    $this->addOption('target', null, sfCommandOption::PARAMETER_OPTIONAL, 'target', null);
+    $this->addOption('targetcommunity', null, sfCommandOption::PARAMETER_OPTIONAL, 'targetcommunity', null);
   }
 
   protected function execute($arguments = array(), $options = array())
   {
     if(isset($options['target'])){
       $this->autoFriendWithId($options['target']);
+    }else if(isset($options['targetcommunity'])){
+      $this->autoFriendWithId($options['targetcommunity']);
     }else{
       $this->autoFriendAll();
     }
+
+
   }
   private function autoFriendAll(){
     $databaseManager = new sfDatabaseManager($this->configuration);
@@ -40,6 +45,35 @@ EOF;
     $conn = $databaseManager->getDatabase(array_shift($databaseManager->getNames()))->getConnection();
     $stmt = $conn->prepare('insert into member_relationship (member_id_to,member_id_from,is_friend,is_friend_pre) SELECT m1.id as member_id_to ,m2.id as member_id_from ,1 as is_friend , 0 as is_friend_pre FROM member as m1,member as m2 WHERE m1.id != m2.id');
     $stmt->execute();
+  }
+  private function autoFriendWithCommunityId($target_id = null){
+    if(!$target_id){
+      return;
+    }
+    $id_list = Doctrine::getTable('CommunityMember')->getMemberIdsByCommunityId($target_id);
+    if(count($id_list) >= 100){
+      //当面100人以上は負荷の心配があるので制限する。
+      return;
+    }
+    foreach($id_list as $id_from){
+      foreach($id_list as $id_to){
+        if($id_from != $id_to){
+          $relation = Doctrine::getTable('MemberRelationship')->retrieveByFromAndTo($id_from,$id_to);
+          $relation2 = Doctrine::getTable('MemberRelationship')->retrieveByFromAndTo($id_to,$id_from);
+          if(!$relation && !$relation2){
+             $obj = new MemberRelationship();
+             $obj->setMemberIdFrom($id_from);
+             $obj->setMemberIdTo($id_to);
+             $obj->save();
+
+             $obj2 = new MemberRelationship();
+             $obj2->setMemberIdFrom($id_to);
+             $obj2->setMemberIdTo($id_from);
+             $obj2->save();
+          }
+        }
+      }
+    }
   }
   private function autoFriendWithId($target_id = null){
     if(!$target_id){
