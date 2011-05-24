@@ -5,13 +5,13 @@
 
 /etc/crontab などに以下のようにcronの設定を行ないます。
 
-0 * * * * cd /var/www/OPENPNE_DIR/ && /usr/bin/php symfony tjm:AutoFriend
+0 * * * * cd /var/www/OPENPNE_DIR/ && /usr/bin/php symfony zuniv.us:AutoFriend
 上記の設定では、毎時０分に全メンバーのフレンドリンクを行ないます。
 
-symfony tjm:AutoFriend --target=9999
+symfony zuniv.us:AutoFriend --target=9999
 id=9999 のユーザーを全フレンドリンクにする。
 
-symfony tjm:AutoFriend --targetcommunity=9999
+symfony zuniv.us:AutoFriend --targetcommunity=9999
 コミュニティID=9999 内の全メンバーをフレンドリンクにする。
 
 ■TODO
