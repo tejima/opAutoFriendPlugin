@@ -57,11 +57,14 @@ EOF;
     }
   }
   private function autoFriendAll(){
-
-    //最初に全フレンドリンクを削除
     Doctrine_Query::create()->delete('MemberRelationship s')->execute();
+    
     $conn = $this->databaseManager->getDatabase(array_shift($this->databaseManager->getNames()))->getConnection();
-    $stmt = $conn->prepare('insert into member_relationship (member_id_to,member_id_from,is_friend,is_friend_pre) SELECT m1.id as member_id_to ,m2.id as member_id_from ,1 as is_friend , 0 as is_friend_pre FROM member as m1,member as m2 WHERE m1.id != m2.id AND m1.is_login_rejected = 0 AND m2.is_login_rejected = 0');
+
+    $stmt = $conn->prepare('insert into member_relationship (member_id_to,member_id_from,is_friend,is_friend_pre)'
+    .' SELECT m1.id as member_id_to ,m2.id as member_id_from ,1 as is_friend , 0 as is_friend_pre FROM'
+    .' member as m1,member as m2 WHERE m1.id != m2.id AND m1.is_login_rejected = 0 AND m2.is_login_rejected = 0');
+
     $stmt->execute();
   }
   private function autoFriendWithCommunityId($community_id = null){
