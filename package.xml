@@ -13,31 +13,24 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2010-07-09</date>
- <time>02:06:24</time>
+ <date>2013-02-19</date>
+ <time>19:48:43</time>
  <version>
-  <release>1.1.0</release>
-  <api>1.1.0</api>
+  <release>1.1.1</release>
+  <api>1.1.1</api>
  </version>
  <stability>
-  <release>stable</release>
-  <api>stable</api>
+  <release>beta</release>
+  <api>beta</api>
  </stability>
  <license>Apache</license>
  <notes>
-add function: autofriend with target community.
+Package name changed.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
-   <file baseinstalldir="/" md5sum="c9830a09d806b7b718d2d402a9b5eb9e" name="lib/task/opAutoFriendTask.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="25b04d5e2306bbc79824f120dc88d181" name="test/bootstrap/database.php" role="data" />
-   <file baseinstalldir="/" md5sum="2089e76b9d0ae0fd4d222ee37ea68cb5" name="test/bootstrap/functional.php" role="data" />
-   <file baseinstalldir="/" md5sum="4bfa4b596e946c8a283410a2e2ba4315" name="test/bootstrap/unit.php" role="data" />
-   <file baseinstalldir="/" md5sum="8471fade12b0760fab6715ffb8b8f9e4" name="test/fixtures/test_data.yml" role="data" />
-   <file baseinstalldir="/" md5sum="8a98cacfcc151f2808c399543fd52679" name="test/functional/mobile_frontend/skeletonActionsTest.php" role="data" />
-   <file baseinstalldir="/" md5sum="1faa199e87c1ce270e86edee706b37fd" name="test/functional/pc_frontend/skeletonActionsTest.php" role="data" />
-   <file baseinstalldir="/" md5sum="52440ab0abcc01c98551283f1e9942e1" name="test/unit/model/SkeletonTest.php" role="data" />
-   <file baseinstalldir="/" md5sum="4e1a0209f859f45640498561e536cf75" name="README" role="data" />
+   <file baseinstalldir="/" md5sum="176cbd936505308f5509e90a1eaaa74e" name="lib/task/opAutoFriendTask.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="7e9f3ce5fb068e4525d0ef9dc3aabd0d" name="README" role="data" />
   </dir>
  </contents>
  <dependencies>
@@ -80,6 +73,21 @@ First stable release.
    <license>Apache</license>
    <notes>
 add function: autofriend with target community.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.1.1</release>
+    <api>1.1.1</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2013-02-19</date>
+   <license>Apache</license>
+   <notes>
+Package name changed.
    </notes>
   </release>
  </changelog>

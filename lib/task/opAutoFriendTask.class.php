@@ -1,17 +1,13 @@
 <?php
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
  *
- * For the full copyright and license information, please view the LICENSE
- * file and the NOTICE file that were distributed with this source code.
+ * @author     Mamoru Tejima <tejima@gmail.com>
  */
-
 class opAutoFriendTask extends sfBaseTask
 {
   protected function configure()
   {
-    $this->namespace        = 'zuniv.us';
+    $this->namespace        = 'cqc.jp';
     $this->name             = 'AutoFriend';
     $this->briefDescription = 'This plugin makes friend link automatically.';
     $this->databaseManager = null;
