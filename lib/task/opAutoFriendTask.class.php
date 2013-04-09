@@ -15,7 +15,7 @@ class opAutoFriendTask extends sfBaseTask
   [./symfony zuniv.us:AutoFriend]
 EOF;
 
-    $this->addOption('disconnectall', null,sfCommandOption::PARAMETER_NONE, 'disconnect', null);
+    $this->addOption('disconnectall', null,sfCommandOption::PARAMETER_NONE, 'disconnectall', null);
     $this->addOption('disconnect', null,sfCommandOption::PARAMETER_NONE, 'disconnect', null);
     $this->addOption('member_id', null, sfCommandOption::PARAMETER_OPTIONAL, 'member_id', null);
     $this->addOption('community_id', null, sfCommandOption::PARAMETER_OPTIONAL, 'community_id', null);
