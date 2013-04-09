@@ -1,3 +1,8 @@
+opAutoFriendPlugin
+======================
+
+フレンドリンクを自動的に管理するプラグインです。
+
 ■セットアップ方法
  ./symfony opPlugin:install opAutoFriendPlugin -r 1.1.1
 
@@ -7,11 +12,11 @@
 0 * * * * cd /var/www/OPENPNE_DIR/ && /usr/bin/php symfony cqc.jp:AutoFriend
 上記の設定では、毎時０分に全メンバーのフレンドリンクを行ないます。
 
-symfony cqc.jp:AutoFriend --target=9999
+symfony cqc.jp:AutoFriend --member_id=9999
 id=9999 のユーザーを全フレンドリンクにする。
 
-symfony cqc.jp:AutoFriend --targetcommunity=9999
-コミュニティID=9999 内の全メンバーをフレンドリンクにする。
+symfony cqc.jp:AutoFriend --community_id=9999
+コミュニティID=9999 内の全メンバー同士をフレンドリンクにする。
 
 ■TODO
 ・コミュニティ指定やフレンド指定にバグがあるので修正
